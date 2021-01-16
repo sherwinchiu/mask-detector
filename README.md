@@ -8,7 +8,6 @@ Makes use of a Raspberry Pi 3, Webcam, and some hardware.
 - Raspberry Pi 3 B 
 - Raspberry Pi Camera
 - Power Supply 
-
 ## Software
 Using:
 - Raspbian OS
