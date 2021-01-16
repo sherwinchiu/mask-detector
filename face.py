@@ -7,14 +7,15 @@ import sys
 import cv2
 import numpy as np
 
-# Getting paths for cascade/image
-imagePath = "index.jpeg"
-cascadePath = "haarcascade_frontalface_default.xml"
-# Process image and cascades to classify them
-image = cv2.imread(imagePath)
-cascade = cv2.CascadeClassifier(cascadePath)
-# Compare images to cascade, detect how many faces are there
-faces = cascade.detectMultiScale(image, scaleFactor=1.1, minNeighbors=5,minSize=(50,50))
-# Print number of faces 
-print(len(faces))
+def detectFace():
+    # Getting paths for cascade/image
+    imagePath = "p.jpg"
+    cascadePath = "haarcascade_frontalface_default.xml"
+    # Process image and cascades to classify them
+    image = cv2.imread(imagePath)
+    cascade = cv2.CascadeClassifier(cascadePath)
+    # Compare images to cascade, detect how many faces are there
+    faces = cascade.detectMultiScale(image, scaleFactor=1.1, minNeighbors=5,minSize=(50,50))
+    # Print number of faces 
+    print(len(faces))
 
