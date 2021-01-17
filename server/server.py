@@ -12,7 +12,7 @@ from PIL import Image, ImageOps
 # Initialize the Flask application
 app = Flask(__name__)
 
-def detectMask(imagePath):
+def detectMask(image):
     # Disable scientific notation for clarity
     np.set_printoptions(suppress=True)
 
@@ -25,7 +25,6 @@ def detectMask(imagePath):
     data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
     # Replace this with the path to your image
-    image = Image.open(imagePath)
 
     # resize the image to a 224x224 with the same strategy as in TM2:
     # resizing the image to be at least 224x224 and then cropping from the center
@@ -60,7 +59,7 @@ def test():
     # decode image
     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     # do some fancy processing here....
-    prediction= detectMask("/home/pi/Desktop/mask-detector/p.jpeg")
+    prediction= detectMask(img)
     # build a response dict to send back to client
     response = {'message': prediction}
                 
