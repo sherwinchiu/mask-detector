@@ -11,7 +11,7 @@ def detectMask(imagePath):
 
     # Load the model
     model = keras.models.load_model("keras_model.h5")
-    
+
     # Create the array of the right shape to feed into the keras model
     # The 'length' or number of images you can put into the array is
     # determined by the first position in the shape tuple, in this case 1.
@@ -39,8 +39,9 @@ def detectMask(imagePath):
 
     # run the inference
     prediction = model.predict(data)
-    print (model.predict(data))
+    print(model.predict(data))
     print(prediction)
     return prediction
+
 
 detectMask("/home/pi/Desktop/mask-detector/p.jpeg")

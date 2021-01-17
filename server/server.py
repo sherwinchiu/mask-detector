@@ -8,18 +8,19 @@ from tensorflow import keras
 from PIL import Image as im, ImageOps
 
 
-
-
 # Initialize the Flask application
 app = Flask(__name__)
+
 
 def detectMask(imagePath):
     # Disable scientific notation for clarity
     np.set_printoptions(suppress=True)
 
     # Load the model
-    model = keras.models.load_model("/home/goon/Desktop/mask-detector/server/keras_model.h5")
-    
+    model = keras.models.load_model(
+        "/home/goon/Desktop/mask-detector/server/keras_model.h5"
+    )
+
     # Create the array of the right shape to feed into the keras model
     # The 'length' or number of images you can put into the array is
     # determined by the first position in the shape tuple, in this case 1.
@@ -49,13 +50,14 @@ def detectMask(imagePath):
     prediction = model.predict_proba(data)
     a = prediction.tolist()
     print(a)
-    if (a[0][0] > 0.5):
+    if a[0][0] > 0.5:
         return 0
     else:
         return 1
 
+
 # route http posts to this method
-@app.route('/api/test', methods=['POST'])
+@app.route("/api/test", methods=["POST"])
 def test():
     r = request
     # convert string of image data to uint8
@@ -63,12 +65,12 @@ def test():
     # decode image
     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     new = im.fromarray(img)
-    new.save('goon.jpeg')
-    #   
-    prediction = detectMask('/home/goon/Desktop/mask-detector/goon.jpeg')
+    new.save("goon.jpeg")
+    #
+    prediction = detectMask("/home/goon/Desktop/mask-detector/goon.jpeg")
     # build a response dict to send back to client
     response = prediction
-    
+
     # encode response using jsonpickle
     response_pickled = jsonpickle.encode(response)
 
