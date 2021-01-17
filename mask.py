@@ -37,5 +37,8 @@ def detectMask(imagePath):
 
     # run the inference
     prediction = model.predict(data)
+    print (model.predict(data))
     print(prediction)
     return prediction
+
+detectMask("/home/pi/Desktop/mask-detector/p.jpeg")

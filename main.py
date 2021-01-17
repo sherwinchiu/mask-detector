@@ -18,10 +18,10 @@ def main():
     while True:
         camera.takePicture(0.5)
 
-        if face.detectFace("/home/pi/Desktop/mask-detector/p.jpg") > 0:
+        if face.detectFace("p.jpeg") > 0:
             # face detected, check if mask
 
-            if mask.detectMask("/home/pi/Desktop/mask-detector/p.jpg"):
+            if mask.detectMask("/home/pi/Desktop/mask-detector/p.jpeg"):
                 print("Mask Detected, thank you")
             else:
                 print("Mask not found, please put a mask on before entering")
