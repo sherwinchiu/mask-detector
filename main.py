@@ -21,7 +21,7 @@ def main():
         if face.detectFace("p.jpeg") > 0:
             # face detected, check if mask
 
-            if mask.detectMask("/home/pi/Desktop/mask-detector/p.jpeg"):
+            if mask.detectMask("/home/pi/Desktop/mask-detector/p.jpeg") == 1:
                 print("Mask Detected, thank you")
             else:
                 print("Mask not found, please put a mask on before entering")
