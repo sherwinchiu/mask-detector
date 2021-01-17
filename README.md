@@ -37,25 +37,9 @@ to determine if a mask is being worn properly.
 3) If the program determines that the person is not wearing a mask, you will be alerted by several blinking red LEDs. 
    If a mask is being worn correctly, then green LEDs will blink instead.
    
-## File Breakdown
-Camera.py:
-- File for PiCamera, conatins functionality to take picture and save to desktop, and delete previous pictures
-
-Face.py:
-- File for facial recognition, uses OpenCV cascades to determine if human face is in frame
-
-Main.py
-- Main method, continously takes photos and determines if face, mask are found
-
-Server.py
-- Operates a server to offload computation from Raspberry PI to more power computer
-
-Client.py
-- A simple client for the Raspberry PI to communicate with server
 
 ## Installation and Usage
-Ensure you have the following installed: 
-- Python 3.7
+UNDER REVIEW
 
 
 ## Real Life Application
