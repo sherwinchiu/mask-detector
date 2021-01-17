@@ -16,9 +16,6 @@ def sendRequest():
     img = cv2.imread('/home/pi/Desktop/mask-detector/p.jpeg')
     _, img_encoded = cv2.imencode('.jpg',img)
     response = requests.post(test_url, data=img_encoded.tobytes(),headers=headers)
-    print(json.loads(response.text))
+
     return json.loads(response.text)
     
-
-# test
-sendRequest()
