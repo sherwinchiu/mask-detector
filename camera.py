@@ -18,5 +18,3 @@ def takePicture(shutterSpeed):
 
 def deletePicture():
     os.remove('/home/pi/Desktop/mask-detector/p.jpeg')
-
-takePicture(2)
