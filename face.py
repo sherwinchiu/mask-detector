@@ -11,7 +11,7 @@ import tensorflow.keras
 def detectFace(imagePath):
     cv2.setUseOptimized(True)
     # Getting paths for cascade/image
-    imagePath = "test-data/0.jpg"
+    imagePath = "p.jpg"
     cascadePath = "haarcascade_frontalface_default.xml"
     # Process image and cascades to classify them
     image = cv2.imread(imagePath)

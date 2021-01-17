@@ -14,6 +14,7 @@ def takePicture(shutterSpeed):
     sleep(shutterSpeed)
     camera.capture('/home/pi/Desktop/mask-detector/p.jpeg')
   #  camera.stop_preview()
+    camera.close()
 
 def deletePicture():
     os.remove('/home/pi/Desktop/mask-detector/p.jpeg')

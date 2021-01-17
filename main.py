@@ -1,13 +1,22 @@
 import face
 import camera
 import mask
+# Camera.py Libraries
+from picamera import PiCamera
+from time import sleep
+import os
+# Face.py Libraries
+import sys
+import cv2
+import tensorflow.keras
 
 
 def main():
-    print("Face Mask Detection System V1.0/nThank you for using")
+    print("Face Mask Detection System V1.0")
+    print("Thank you for using")
 
     while True:
-        camera.takePicture(10)
+        camera.takePicture(0.5)
 
         if face.detectFace("/home/pi/Desktop/mask-detector/p.jpg") > 0:
             # face detected, check if mask
@@ -17,8 +26,10 @@ def main():
             else:
                 print("Mask not found, please put a mask on before entering")
 
+        else:
+            print("No face")
         camera.deletePicture()
-
+        
 
 if __name__ == "__main__":
     main()
