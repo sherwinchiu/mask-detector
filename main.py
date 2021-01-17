@@ -1,10 +1,13 @@
 import face
 import camera
 import mask
+import client
+
 # Camera.py Libraries
 from picamera import PiCamera
 from time import sleep
 import os
+
 # Face.py Libraries
 import sys
 import cv2
@@ -13,15 +16,15 @@ import light
 
 def main():
     print("Face Mask Detection System V1.0")
-    print("Thank you for using")
+    print("Thank you for contributing to a safer experience for everyone!")
 
     while True:
-        camera.takePicture(0.5)
+        camera.takePicture(10)
 
         if face.detectFace("p.jpeg") > 0:
             # face detected, check if mask
 
-            if mask.detectMask("/home/pi/Desktop/mask-detector/p.jpeg") == 1:
+            if client.sendRequest() == 1:
                 print("Mask Detected, thank you")
                 light.turnGreen()
             else:
@@ -31,7 +34,7 @@ def main():
         else:
             print("No face")
         camera.deletePicture()
-        
+
 
 if __name__ == "__main__":
     main()

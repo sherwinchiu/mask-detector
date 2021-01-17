@@ -16,7 +16,7 @@ and we believe that the flexibility of our implementation could make a significa
 
 ## Software
 Using:
-- Linux
+- Linux/Ubuntu
 - Raspbian OS
 - Python3, PIP
 - Git/Github
@@ -24,7 +24,7 @@ Using:
 ## Packages/Libraries
 - Tensorflow.keras
 - OpenCV
-- numpy
+- numPy
 - Pillow
 
 
@@ -36,10 +36,6 @@ to determine if a mask is being worn properly.
    that we trained. 
 3) If the program determines that the person is not wearing a mask, you will be alerted by several blinking red LEDs. 
    If a mask is being worn correctly, then green LEDs will blink instead.
-   
-
-## Installation and Usage
-UNDER REVIEW
 
 
 ## Real Life Application
