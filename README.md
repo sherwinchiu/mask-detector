@@ -16,7 +16,7 @@ and we believe that the flexibility of our implementation could make a significa
 
 ## Software
 Using:
-- Linux
+- Linux/Ubuntu
 - Raspbian OS
 - Python3, PIP
 - Git/Github
