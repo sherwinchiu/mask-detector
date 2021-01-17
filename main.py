@@ -9,7 +9,7 @@ import os
 import sys
 import cv2
 import tensorflow.keras
-
+import light
 
 def main():
     print("Face Mask Detection System V1.0")
@@ -23,8 +23,10 @@ def main():
 
             if mask.detectMask("/home/pi/Desktop/mask-detector/p.jpeg") == 1:
                 print("Mask Detected, thank you")
+                light.turnGreen()
             else:
                 print("Mask not found, please put a mask on before entering")
+                light.turnRed()
 
         else:
             print("No face")
