@@ -24,7 +24,7 @@ Using:
 ## Packages/Libraries
 - Tensorflow.keras
 - OpenCV
-- numpy
+- numPy
 - Pillow
 
 
