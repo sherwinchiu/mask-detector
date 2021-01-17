@@ -10,11 +10,11 @@ import os
 
 def takePicture(shutterSpeed):
     camera = PiCamera()
-    camera.start_preview()
+  #  camera.start_preview()
     sleep(shutterSpeed)
-    camera.capture('/home/pi/Desktop/mask-detector/p.jpg')
-    camera.stop_preview()
+    camera.capture('/home/pi/Desktop/mask-detector/p.jpeg')
+  #  camera.stop_preview()
 
 def deletePicture():
-    os.remove('/home/pi/Desktop/mask-detector/p.jpg')
+    os.remove('/home/pi/Desktop/mask-detector/p.jpeg')
 

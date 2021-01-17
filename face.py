@@ -5,11 +5,12 @@
 # Detects the face and returns how many faces have been detected
 import sys
 import cv2
+import tensorflow.keras
 
 def detectFace():
     cv2.setUseOptimized(True)
     # Getting paths for cascade/image
-    imagePath = "test-data/8-with-mask.jpg"
+    imagePath = "test-data/0.jpg"
     cascadePath = "haarcascade_frontalface_default.xml"
     # Process image and cascades to classify them
     image = cv2.imread(imagePath)
@@ -17,11 +18,10 @@ def detectFace():
     # Compare images to cascade, detect how many faces are there
     faces = cascade.detectMultiScale(image, scaleFactor=1.1, minNeighbors=5,minSize=(50,50))
     # Show faces (for testing)
-    for (x, y, w, h) in faces:
-        cv2.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 1)
-    cv2.imshow("test", image)
-    cv2.waitKey(0)
+#    for (x, y, w, h) in faces:
+#        cv2.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 1)
+#    cv2.imshow("test", image)
+ #   cv2.waitKey(0)
     # Return number of faces
     return len(faces)
 
-print(detectFace())
