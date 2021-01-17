@@ -1,32 +1,57 @@
 # Mask Detector
 ---
-Facial recognition software to detect whether or not someone who is entering a store/home has a face mask properly on.
-If not, it alerts employee's or people around them to this fact, so that they may properly position their mask for safe use. 
-Makes use of a Raspberry Pi 3, Webcam, and some hardware.
+In light of recent events and the significant impact that COVID-19 has had on our daily lives, our team of 4 has
+decided to create an easily implementable technology that could better protect the public and reduce the spread of COVID-19. 
+
+We have created a facial recognition software to detect whether or not someone is properly wearing a face mask using machine
+learning algorithms. The associated actions could range from alerting a system operator, to opening automated doors, or 
+prompting unmasked persons to put a mask on. There are numerous potential applications that may stem from this project, 
+and we believe that the flexibility of our implementation could make a significant impact on public health.
+
 
 ## Hardware
-- Raspberry Pi 3 B 
+- Raspberry Pi 3B 
 - Raspberry Pi Camera
 - Power Supply 
+
 ## Software
 Using:
+- Linux
 - Raspbian OS
-- Python3
-- Git
-- Python3-Pip
+- Python3, PIP
+- Git/Github
+
 ## Packages/Libraries
 - Tensorflow.keras
 - OpenCV
 - numpy
 - Pillow
-## How It Works
-Our Raspberry PI 3 B will continously take pictures, checking if you are wearing a mask or not. First, it recognizes 
-your face, and makes sure you are a person. After, it checks if you have a mask on by using a machine learning algorithm. 
-If no mask it on, it alerts you by blinking several Red LEDs. If a mask is on, then Green LEDs will blink.
-## Usage
-Can be used in wide applications, from personal to commerical. Some applications that may apply are:
-- Store fronts, ensuring everyone entering wears a mask
-- House/Apartment, so you don't forget your mask at home
-- Schools and Hospitals
-- Any indoor space 
 
+
+## How It Works
+When activated, our Raspberry PI 3B will continously take pictures of the person in question, going through several steps
+to determine if a mask is being worn properly.
+1) Using OpenCV's integrated facial recognition algorithms, we first determine if there is a human face(s) present in the view
+2) Upon recognizing a human face, the program then checks if you have a mask on by using a TensorFlow machine learning model
+   that we trained. 
+3) If the program determines that the person is not wearing a mask, you will be alerted by several blinking red LEDs. 
+   If a mask is being worn correctly, then green LEDs will blink instead.
+   
+
+## Installation and Usage
+UNDER REVIEW
+
+
+## Real Life Application
+Can be used in a variety of situations to improve personal safety, hygiene, and adherence to regulations
+Potential applications range from personal use to commerical implementations. Some usages could include:
+
+- Store fronts / Public Areas
+    - Could be connected to an automated gate, removing need for human moderation 
+- House / Apartment Buildings
+    - Protect yourself and delivery personnel
+    - Could set up reminder in case you forget to wear a mask
+    - Could be further developed into facial recognition to unlock door
+- Schools and Hospitals
+    - Ensure students, patients, visitors are properly protected
+    - Reduce spread in high-risk areas such as hospitals, schoosl with young children
