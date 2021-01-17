@@ -59,12 +59,11 @@ def test():
     nparr = np.fromstring(r.data, np.uint8)
     # decode image
     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-
     # do some fancy processing here....
     prediction= detectMask("/home/pi/Desktop/mask-detector/p.jpeg")
     # build a response dict to send back to client
-    response = {'message': prediction)
-                }
+    response = {'message': prediction}
+                
     # encode response using jsonpickle
     response_pickled = jsonpickle.encode(response)
 
