@@ -5,19 +5,20 @@ import cv2
 import tensorflow.keras
 import tensorflow
 from tensorflow import keras
-from PIL import Image, ImageOps
+from PIL import Image as im, ImageOps
+
 
 
 
 # Initialize the Flask application
 app = Flask(__name__)
 
-def detectMask(image):
+def detectMask(imagePath):
     # Disable scientific notation for clarity
     np.set_printoptions(suppress=True)
 
     # Load the model
-    model = tensorflow.keras.models.load_model("/home/goon/Desktop/mask-detector/server/keras_model.h5")
+    model = keras.models.load_model("/home/goon/Desktop/mask-detector/server/keras_model.h5")
     
     # Create the array of the right shape to feed into the keras model
     # The 'length' or number of images you can put into the array is
@@ -25,17 +26,12 @@ def detectMask(image):
     data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
     # Replace this with the path to your image
-    
+    image = im.open(imagePath)
 
     # resize the image to a 224x224 with the same strategy as in TM2:
     # resizing the image to be at least 224x224 and then cropping from the center
-    w,h = 512,512
-    data=np.zeros((h,w,3),dtype=np.uint8)
-    data[0:256,0:256]=[255,0,0]
-    image=Image.fromarray(data,'RGB')
-    image.save('my.png')
-    
-    
+    size = (224, 224)
+    image = ImageOps.fit(image, size, im.ANTIALIAS)
 
     # turn the image into a numpy array
     image_array = np.asarray(image)
@@ -50,10 +46,13 @@ def detectMask(image):
     data[0] = normalized_image_array
 
     # run the inference
-    prediction = model.predict(data)
-    print (model.predict(data))
-    print(prediction)
-    return prediction
+    prediction = model.predict_proba(data)
+    a = prediction.tolist()
+    print(a)
+    if (a[0][0] > 0.5):
+        return 0
+    else:
+        return 1
 
 # route http posts to this method
 @app.route('/api/test', methods=['POST'])
@@ -63,11 +62,12 @@ def test():
     nparr = np.fromstring(r.data, np.uint8)
     # decode image
     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-    # 
-    prediction = detectMask(img)
+    new = im.fromarray(img)
+    new.save('goon.jpeg')
+    #   
+    prediction = detectMask('/home/goon/Desktop/mask-detector/goon.jpeg')
     # build a response dict to send back to client
-    response = {'message': 0
-            }
+    response = prediction
     
     # encode response using jsonpickle
     response_pickled = jsonpickle.encode(response)
