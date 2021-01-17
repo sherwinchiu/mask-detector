@@ -1,3 +1,8 @@
+# light.py
+# Sherwin Chiu, Kyrollous Nassif, George Li, Matthew Hao
+# 01/16/2021
+# Desc: Quick lighting script to turn on green/red LEDs 
+
 import RPi.GPIO as GPIO
 
 GPIO.setwarnings(False)

@@ -1,3 +1,9 @@
+# server.py
+# Kyrollous Nassif, George Li, Sherwin Chiu, Matthew Hao
+# 01/16/2021 
+# Desc: Server-side that gets POST requests sent by client. Analyzes pictures
+# to see if facemask is present, then sends 0 or 1 to client
+
 from flask import Flask, request, Response
 import jsonpickle
 import numpy as np

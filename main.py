@@ -1,6 +1,10 @@
+# main.py
+# Matthew Hao, George Li, Sherwin Chiu, Kyrollous Nassif, 
+# 01/16/2021
+# Desc: Program to have Raspberry Pi to continously check if wearing masks
+
 import face
 import camera
-import mask
 import client
 
 # Camera.py Libraries

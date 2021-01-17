@@ -1,7 +1,7 @@
 # camera.py
 # Sherwin Chiu, Kyrollous Nassif, George Li, Matthew Hao
 # 01/16/2021 
-# Takes a picture with integrated camera from PiCamera, then saves to desktop
+# Desc: Takes a picture with integrated camera from PiCamera, then saves to desktop
 # Also comes with feature to delete picture
 
 from picamera import PiCamera

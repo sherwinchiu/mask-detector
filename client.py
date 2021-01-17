@@ -1,3 +1,8 @@
+# client.py
+# George Li, Sherwin Chiu, Kyrollous Nassif, Matthew Hao
+# 01/16/2021
+# Desc: Client-side that sends requests with pictures. Server can respond with a 0 or 1.
+# 0 is used to say no-mask, 1 is used to say mask
 from __future__ import print_function
 import requests
 import json
