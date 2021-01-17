@@ -39,7 +39,7 @@ to determine if a mask is being worn properly.
 
 
 ## Real Life Application
-Can be used in a variety of situations to improve personal safety, hygiene, and adherence to regulations
+Can be used in a variety of situations to improve personal safety, hygiene, and adherence to regulations.
 Potential applications range from personal use to commerical implementations. Some usages could include:
 
 - Store fronts / Public Areas
@@ -50,4 +50,4 @@ Potential applications range from personal use to commerical implementations. So
     - Could be further developed into facial recognition to unlock door
 - Schools and Hospitals
     - Ensure students, patients, visitors are properly protected
-    - Reduce spread in high-risk areas such as hospitals, schoosl with young children
+    - Reduce spread in high-risk areas such as hospitals, schools with young children
